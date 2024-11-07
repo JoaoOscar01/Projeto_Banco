@@ -2,7 +2,6 @@ package br.com.fecaf.controller;
 
 import br.com.fecaf.model.Cliente;
 import br.com.fecaf.model.Conta;
-
 import java.util.Scanner;
 
 public class Menu {
@@ -118,7 +117,11 @@ public class Menu {
                     break;
 
                 case 4:
-                    System.out.println("Feature in Development !");
+                    System.out.println("/------- Transferencia ---------/");
+                    System.out.print("Informe o Valor para Transferencia: ");
+                    double valorTansferencia = scanner.nextDouble();
+                    scanner.nextLine();
+
                     break;
                 case 5:
                     exitConta = true;
