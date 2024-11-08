@@ -122,6 +122,26 @@ public class Menu {
                     double valorTansferencia = scanner.nextDouble();
                     scanner.nextLine();
 
+                    System.out.println("Digite o CPF da conta que deseja transferir");
+                    long inputCPF = scanner.nextLong();
+                    scanner.nextLine();
+                    if (referenciaCliente.pesquisarCliente(inputCPF) == null) {
+                        System.out.println("Cliente não foi localizado");
+                    }
+                    else {
+                        Cliente clienteTransferir = referenciaCliente.pesquisarCliente(inputCPF);
+                        Conta contaTransferir = referenciaConta.pesquisarConta(clienteTransferir);
+                        System.out.println("Cliente foi encontrado " + clienteTransferir.getNome());
+
+                        if (conta.getSaldo() < valorTansferencia){
+                            System.out.println("Saldo insuficiente");
+                        } 
+                        else {
+                            conta.realizarSaque(valorTansferencia);
+                            contaTransferir.realizarDeposito(valorTansferencia);
+                            System.out.println("Transferencia concluida com sucesso");
+                        }
+                    }
                     break;
                 case 5:
                     exitConta = true;
